@@ -1,2 +1,1 @@
-A simple infrastructure server
-==============================
+# A simple infrastructure server
