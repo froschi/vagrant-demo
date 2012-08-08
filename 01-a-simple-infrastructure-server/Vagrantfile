@@ -9,4 +9,11 @@ Vagrant::Config.run do |config|
   config.vm.base_mac = "52:a0:32:88:3b:c5"
   config.vm.network(:hostonly, "192.168.10.2", :adapter => 2, :auto_config => true)
   config.vm.network(:hostonly, "192.168.11.2", :adapter => 3, :auto_config => true)
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = ["cookbooks"]
+    chef.add_recipe("apt")
+    chef.add_recipe("ntp")
+    chef.add_recipe("pdns")
+  end
 end
