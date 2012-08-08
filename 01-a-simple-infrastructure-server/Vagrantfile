@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+  config.vm.box = "infra-1.demo"
+  config.vm.box_url = "/home/thorsten/.vagrant.d/boxes/.original/vagrantup/precise64.box"
+  config.vm.boot_mode = :headless
+  config.vm.customize ["modifyvm", :id, "--memory", 256]
+  config.vm.base_mac = "52:a0:32:88:3b:c5"
+  config.vm.network(:hostonly, "192.168.10.2", :adapter => 2, :auto_config => true)
+  config.vm.network(:hostonly, "192.168.11.2", :adapter => 3, :auto_config => true)
+end
